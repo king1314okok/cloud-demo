@@ -1,0 +1,22 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: cloud-eureka
+  cloud:
+    client:
+      ipAddress:
+        localhost
+
+eureka:
+  instance:
+    hostname: ${spring.cloud.client.ipAddress}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8000/eureka/
+
+ribbon:
+  MaxAutoRetries: 1
+  ConnectionTimeout: 1000
+  ReadTimeout: 10000
